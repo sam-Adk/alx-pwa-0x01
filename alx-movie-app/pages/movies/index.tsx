@@ -31,10 +31,12 @@ const Movies: React.FC<MProps> = () => {
       }
     })
 
-    if (!response.ok) {
-      setLoading(false)
-      throw new Error("Something went wrong")
-    }
+  if (!response.ok) {
+  const text = await response.text()
+  console.error("❌ API call failed:", response.status, response.statusText, text)
+  setLoading(false)
+  return
+}
 
     const data = await response.json()
     const results = data.movies
