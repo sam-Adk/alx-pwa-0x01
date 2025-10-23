@@ -45,7 +45,6 @@ export default async function handler(request: NextApiRequest, response: NextApi
     return response.status(200).json({ movies });
  } catch (error: unknown) {
 
-    console.error("🔥 API Error:", error);
-    return response.status(500).json({ error: "Internal Server Error" });
-  }
-}
+console.error("🔥 API Error:", error);
+return response.status(500).json({ error: "Internal Server Error" });
+
